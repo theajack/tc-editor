@@ -19,6 +19,7 @@ var Ced={
       });
       initFunBtn();//未完成
       initCodeMain(J.class("code_editor"));
+      
     }else{
       initFrame(element);
       initFunBtn();//未完成
@@ -71,8 +72,8 @@ function initFrame(item){
     }
     var mh=45;
     if(item.attr(_ce_btn)=="true"){
-      item.child().css("padding-top","35px");
-      mh+=35;
+      item.child().css("padding-top","40px");
+      mh+=40;
       item.append(J.new("div.code_set_w").append('\
         <img src="assets/images/fix.png" onclick="Ced.fix(this)"/>\
         <img src="assets/images/color.png" onclick="Ced.clearColor(this)"/>\
@@ -112,6 +113,7 @@ function initCodeMain(item){
     },
     //onclick:moveCursor
   });
+  tabEnable(item);
 }
 var _code={
   _str:1,
