@@ -231,6 +231,9 @@ cd_str,cd_str * {\n\
 cd_note,cd_note * {\n\
 	color: #019d00!important\n\
 }\n\
+cd_str cd_note,cd_str cd_note *{\n\
+  color: red!important\n\
+}\
 </editor>\
 ',
 ];
