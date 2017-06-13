@@ -160,7 +160,7 @@ a{
   font-weight: bold;
   margin-top: 10px;
   font-size: 28px;
-  color:#222;
+  color:#fff;
 }
 /*end function*/
 
@@ -437,6 +437,7 @@ a{
   }
   .navi-text{
     font-size:15px;
+    top: -2px;
   }
   #apiDetailClose{
     font-size:30px;
