@@ -27,15 +27,15 @@
         就可以在您的html文件中插入代码编辑器
         <div class="clearfix">
           <div class="func-item">
-            <img class="func-img" src="assets/images/spell.png"/>
-            <div class="func-text">使用方便简单</div>
-          </div>
-          <div class="func-item">
-            <img class="func-img" src="assets/images/spell_first.png"/>
+            <img class="func-img" src="assets/images/tab.png"/>
             <div class="func-text">支持缩进缩退</div>
           </div>
           <div class="func-item">
-            <img class="func-img" src="assets/images/stroke.png"/>
+            <img class="func-img" src="assets/images/simple_use.png"/>
+            <div class="func-text">使用方便简单</div>
+          </div>
+          <div class="func-item">
+            <img class="func-img" src="assets/images/powerful.png"/>
             <div class="func-text">功能强大</div>
           </div>
         </div>
@@ -51,63 +51,58 @@
       <div id="copyBtn" class="border-btn" onclick="J.open('assets/js/jcode.min.js')">或点击复制源码</div>
     </div>
     <!--api-->
-    <div id="apiPart" class="bg-gray part clearfix">
+    <div id="apiPart" class="bg-gray part">
       <div class="part-title text-black relative">API文档</div>
-      <div class="api-item">
-        <div class="api-item-title">默认样式</div>
-        <div class="api-item-text">获取汉字完整拼音</div>
-        <div class="api-content-wrapper">
-          <div class="api-item-ltitle">如何使用</div>
-          <div class="api-content clearfix">
-            "测试".spell()
-            <span class="api-content-result" onclick="this.txt('测试'.spell())">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("up")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('up'))">查看</span>
-          </div>
-          <div class="api-content clearfix">
-            "测试".spell("low")
-            <span class="api-content-result" onclick="this.txt('测试'.spell('low'))">查看</span>
-          </div>
-          <div class="api-item-text">'upper','lower'都合法;不区分大小写</div>
-          <div class="api-item-text">非汉字会返回原字符串</div>
+      <div id="apiItemWrapper" class="clearfix">
+        <div class="api-item">
+          <div class="api-item-title">默认样式</div>
+          <div class="api-item-text">获取汉字完整拼音</div>
         </div>
-        <div class="api-test-wrapper">
-          <div class="api-item-ltitle">尝试一下</div>
-          <input type="text" class="api-test-input" placeholder="请输入汉字"/>
-          <span class="api-test-btn" onclick="this.prev().val(this.prev().val().spell())">获取</span>
+        <div class="api-item">
+          <div class="api-item-title">初始代码</div>
+          <div class="api-item-text">为editor标签添加代码</div>
+        </div>
+        <div class="api-item">
+          <div class="api-item-title">禁用编辑</div>
+          <div class="api-item-text">禁止用户编辑文字</div>
+        </div>
+        
+        <div class="api-item">
+          <div class="api-item-title">功能按钮</div>
+          <div class="api-item-text">通过按钮点击实现功能</div>
+        </div>
+        <div class="api-item">
+          <div class="api-item-title">功能函数</div>
+          <div class="api-item-text">js调用功能函数</div>
+        </div>
+        <div class="api-item">
+          <div class="api-item-title">自定义大小</div>
+          <div class="api-item-text">自定义编辑器大小</div>
+        </div>
+        <div class="api-item">
+          <div class="api-item-title">自定义样式</div>
+          <div class="api-item-text">根据喜好自定义编辑器样式</div>
+        </div>
+        <div class="api-item">
+          <div class="api-item-title">初始化编辑器</div>
+          <div class="api-item-text">动态添加编辑器初始化</div>
+        </div>
+        <div class="api-item">
+          <div class="api-item-title">扩展关键词</div>
+          <div class="api-item-text">允许添加自定义关键词</div>
+        </div>
+      </div>
+      <div id="apiShowWrapper">
+        <div id="apiShowNavi">
+          <div id="naviLeft" onclick="lastApi(this)"><span class="navi-arrow">&lt;</span><span class="navi-text">上一节:扩展关键词</span></div>
+          <div id="naviRight" onclick="nextApi(this)"><span class="navi-text">下一节:扩展关键词</span><span class="navi-arrow">&gt;</span></div>
+          <div id="apiDetailClose" onclick="closeDetail()">x<span class="navi-text">关闭</span></div>
+        </div>
+        <div id="apiShowContent">
+        
         </div>
       </div>
       
-      <div class="api-item">
-        <div class="api-item-title">功能按钮</div>
-        <div class="api-item-text">获取汉字拼音首字母</div>
-        <editor j-btn="true"></editor>
-      </div>
-      
-      <div class="api-item">
-        <div class="api-item-title">初始代码</div>
-        <div class="api-item-text">获取汉字笔画数</div>
-      
-      </div>
-      
-      <div class="api-item">
-        <div class="api-item-title">自定义大小</div>
-        <div class="api-item-text">获取汉字笔画数</div>
-      
-      </div>
-      
-      <div class="api-item">
-        <div class="api-item-title">Jcode</div>
-        <div class="api-item-text">获取汉字笔画数</div>
-        
-      </div>
-      <div class="api-item">
-        <div class="api-item-title">初始代码</div>
-        <div class="api-item-text">获取汉字笔画数</div>
-        
-      </div>
     </div>
     <!--relate-->
     <div id="relatePart" class="bg-dark text-white part " >
@@ -144,8 +139,9 @@
     </div>
     <script src="assets/js/jetter.min.js"></script>
     <script src="assets/js/jcode.js"></script>
+    <script src="assets/js/apiData.js"></script>
     <script src="assets/js/index.js"></script>
-    <script src="http://www.theajack.com/assets/js/logo.js"></script>
+    <script name="jcodejs" src="http://www.theajack.com/assets/js/stat.js"></script>
     <script src="http://www.theajack.com/assets/js/log.js"></script>
     <script src="http://www.theajack.com/assets/js/link.js"></script>
     <!--<script type="text/javascript" name="cnchar.js" src="http://www.theajack.com/assets/js/stat.js"></script>-->
