@@ -252,5 +252,5 @@ Jcode.init(J.id("testEditor"));\
 }
 function initEditorTest(){
   Jcode.init(J.id("testEditor"));
-  J.id("apiShowContent ").append('<div class="api-show-text">初始化完成之后就出现了一个功能完整的编辑器了</div>');
+  J.id("apiShowContent").append('<div class="api-show-text">初始化完成之后就出现了一个功能完整的编辑器了</div>');
 }
