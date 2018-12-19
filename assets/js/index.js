@@ -3,7 +3,7 @@ var n=9;
 J.ready(function(){
   J.noteStyle("simple");
   Jcode.extend("color:");
-  J.class("api-item").clk(function(){
+  J.cls("api-item").clk(function(){
     index=this.index();
     if(index==0){
       J.id("naviLeft").hide();

@@ -190,7 +190,7 @@ function getDate(){\n\
         <div class="api-show-text">接下来给出一个参数是一个editor元素的例子：</div>\
         <div class="api-show-text">首先，动态添加一个editor标签(<span class="click" onclick="addEditorTest()">点我添加</span>)，代码如下：</div>\
         <editor width="auto" height="auto" disabled>\n\
-var editor=J.new("editor#testEditor").attr("buttons","true").txt("function test(){\\\n\tvar text=\'Hello Jcode!\';\\\n\talert(text);\\\n}");\n\
+var editor=J.ct("editor#testEditor").attr("buttons","true").txt("function test(){\\\n\tvar text=\'Hello Jcode!\';\\\n\talert(text);\\\n}");\n\
 J.id("textInitEditor").append(editor);\n\
 \
 </editor>\

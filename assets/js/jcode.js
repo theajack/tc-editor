@@ -17,7 +17,7 @@
         J.tag("editor").each(function(item){
           _initFrame(item);
         });
-        _initCodeMain(J.class("code_editor"));
+        _initCodeMain(J.cls("code_editor"));
       }else{
         if(element.tagName.toUpperCase()=="EDITOR"){
           _initFrame(element);
@@ -140,9 +140,9 @@
         h+="px";
       }
       item.empty();
-      item.append(J.new("pre.code_editor_view._bottom").html(cont));
-      item.append(J.new("pre.code_editor_view").html(cont));
-      var ta=J.new("textarea.code_editor[spellcheck=false]").html(cont).data("code",cont);
+      item.append(J.ct("pre.code_editor_view._bottom").html(cont));
+      item.append(J.ct("pre.code_editor_view").html(cont));
+      var ta=J.ct("textarea.code_editor[spellcheck=false]").html(cont).data("code",cont);
       if(item.hasAttr(_ce_disabled)){
         ta.attr(_ce_disabled,_ce_disabled).css("cursor","no-drop");
       }
@@ -190,7 +190,7 @@
             }
           });
         }
-        item.append(J.new("div.code_set_w").append(arr));
+        item.append(J.ct("div.code_set_w").append(arr));
       }
       item.css("min-height",mh+"px");
       if(cont!=""){
@@ -202,7 +202,7 @@
     }
   }
   function _getButton(a){
-    return J.new("img").clk(a[0]).tip(a[1]).attr("src",a[2]);
+    return J.ct("img").clk(a[0]).tip(a[1]).attr("src",a[2]);
   }
   var _buttons={
     fontsizeup:["Jcode.fontSizeUp(this)","放大字体","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAOgSURBVEhLtZdLSFRhGIZzytIkdWFGJF0GhaQiMqJFYhCShEhitqhNYBERohG6kCjoIhFRhEQuuywqRCrDcBUqREQWia0SdUyJEHWsHBuby5meb+bj5OgMc4ZmXnj5/v+7vO9/Lp6mZZEQCARsMNswjGq/3//S5/O52QfB+gP5epjPNlVH/g8I2RDcidkdOAadcBKzr3CQ9QicgFPsZ4jt9JfDdJWIH5imwdMIjiM4S+wnXlHhQpgH82EJrKPWBeVgf+BtZnNUyjoYWolYE2YGIhOsz8USop5K32Fm3uvcE/a5WrYGBo8z6CWOIViqaRNyMJgN0zRlArNNzL6iFiC2sLd22+nPwvAzQ3MMVWs6DORLqLd6vd5q+pdr2gT1AjQG4Rw9B+lJ0VJ00FyLqBt2OhyOJVckQLhGDgZvaCoMYoROI/V5+MDSVTMgb+pvmmsRsElOhKCd01cQK6nfhXK4DvqqYAXcRc28evZFaMlLOcQ69rNmWJ6NGMttDN4iEWR/FpFpFZuXPqJf97PMtJIy7xD9W8jLn5lT1pqODhonEZHnewoh84rZF8F66uepP4Vu1j3kGiVHLKNvRVAEsN9O/iccdblc6zUdHTRegh4RXyi0EIieoC5/MhGfsQCNM9TlGT9HZ7WmowPRdTzLUQZ/sT6gaRN69YcQ7KDnZKTDUc+j1kePh3iMnuCdiwma66DgIyJFmjaBUBr5tTBDUybI5WJ4nx55V545nc4sLcWGCDLUIsNqXsUyW8sRQd3m8Xj2MfdY5ohvmCvUsnUwlMnwZYyniB602sjVEIuJBTCP9WbM9siHhJ57cFhNu6jvUKn4gUYKouUIyVs8raLfYR/LHuJbDjYieaJ8Yh3a85Cw5IsWNzj9GoRKiRcQfQRfiyk5MW+Ht1hXUt+vNRe8zn4v+difSytASF6sDUQ73AjDXh4xw/Sb3AHiJ9gs/VpOHjDJxLSfAwWBsaCTZbG2JAcYp2N0U9xC1iGwHSAc1bbkwO1252P0JWT5D+TGuRt13d3dEb+ICQFX3oCRTz0X4ge1i3CVtiYWCOdydb1qFgYOJG/9VZaJ+VW6GJiXYT4TsgsHxvLPaQNLa9/xeIBoKgbXotxy+ehMcrgj2p5YoJ+D8YuQ1VJQk7fdru2JBcJbubp3QadFwFg+NM3amnjwj8luzOUzGwZM5efTgLYlBzzPbfi0Qfmh6IPyKwZf34i2JA+YZ3Ch8l+jXig/BocNw2j6CzDK/h78B3eqAAAAAElFTkSuQmCC"],
@@ -259,7 +259,7 @@
       "\\?","\\|","\\+","-",";\n",":","!","%","\\^"],//转义
   };
   J.ready(function(){
-    J.tag("head").append(J.new("style").txt("editor{width:300px;height:200px;border:1px solid rgba(255,255,255,.5);display:inline-block;position:relative;white-space:pre;background-color:#222;border-radius:5px;overflow:hidden!important;font-size:18px;line-height:22px;min-width:245px!important;text-align:left!important}editor.j_full{position:fixed;top:0;left:0;width:100%!important;height:100%!important;border:0;border-radius:0;z-index:10000}.j_hidden{overflow:hidden!important}.code_editor,.code_editor_view{width:100%;background-color:transparent;font-size:inherit;padding:10px;line-height:inherit;font-family:Microsoft Yahei;overflow:auto;position:absolute;white-space:pre;border:0;outline:0;-webkit-appearance:none;word-break:break-all;word-wrap:normal;margin:0}.code_set_w{background-color:rgba(100,100,100,.6);width:100%;height:30px;position:absolute;top:0;border-radius:5px 5px 0 0;border-bottom:1px solid #aaa;text-align:right;padding-right:5px;white-space:normal;font-size:18px;line-height:22px}.code_set_w img{width:20px;height:20px;margin:5px 3px;cursor:pointer}.code_editor_view{background-color:transparent;color:transparent}.code_editor_view._bottom{color:#888}.code_editor{position:relative;color:rgba(255,255,255,.5);border-color:transparent;transition:background-color .3s;-o-transition:background-color .3s;-moz-transition:background-color .3s;-webkit-transition:background-color .3s;resize:none}.code_editor.bg{background-color:rgba(20,20,20,.9)}cd_key{color:#22b5ff}cd_sign{color:#f0d}cd_fun,cd_fun *{color:#001dff}cd_dfun,cd_dfun *{color:#b2ff00}cd_num{color:#fff}cd_tag,cd_tag *{color:#ff8d00}cd_str,cd_str *{color:red!important}cd_note,cd_note *{color:#019d00!important}"));
+    J.tag("head").append(J.ct("style").txt("editor{width:300px;height:200px;border:1px solid rgba(255,255,255,.5);display:inline-block;position:relative;white-space:pre;background-color:#222;border-radius:5px;overflow:hidden!important;font-size:18px;line-height:22px;min-width:245px!important;text-align:left!important}editor.j_full{position:fixed;top:0;left:0;width:100%!important;height:100%!important;border:0;border-radius:0;z-index:10000}.j_hidden{overflow:hidden!important}.code_editor,.code_editor_view{width:100%;background-color:transparent;font-size:inherit;padding:10px;line-height:inherit;font-family:Microsoft Yahei;overflow:auto;position:absolute;white-space:pre;border:0;outline:0;-webkit-appearance:none;word-break:break-all;word-wrap:normal;margin:0}.code_set_w{background-color:rgba(100,100,100,.6);width:100%;height:30px;position:absolute;top:0;border-radius:5px 5px 0 0;border-bottom:1px solid #aaa;text-align:right;padding-right:5px;white-space:normal;font-size:18px;line-height:22px}.code_set_w img{width:20px;height:20px;margin:5px 3px;cursor:pointer}.code_editor_view{background-color:transparent;color:transparent}.code_editor_view._bottom{color:#888}.code_editor{position:relative;color:rgba(255,255,255,.5);border-color:transparent;transition:background-color .3s;-o-transition:background-color .3s;-moz-transition:background-color .3s;-webkit-transition:background-color .3s;resize:none}.code_editor.bg{background-color:rgba(20,20,20,.9)}cd_key{color:#22b5ff}cd_sign{color:#f0d}cd_fun,cd_fun *{color:#001dff}cd_dfun,cd_dfun *{color:#b2ff00}cd_num{color:#fff}cd_tag,cd_tag *{color:#ff8d00}cd_str,cd_str *{color:red!important}cd_note,cd_note *{color:#019d00!important}"));
     Jcode.init();
   });
 
@@ -417,9 +417,9 @@
     //moveCursor();.replaceAll("<","&lt;").replaceAll(">","&gt;")
     var html=obj.val().replaceAll("<","&lt;").replaceAll(">","&gt;")+" ";//为了不让最后一个字符是换行
     html=_geneHtmlElement(html);
+    html=_geneDefineFun(html);
     html=_geneKey(html);
     html=_geneFun(html);
-    //html=_geneDefineFun(html);
     html=_geneNumber(html);
     html=_geneString(html);
     html=_geneNote(html);
@@ -452,16 +452,14 @@
     return html;
   }
   function _geneDefineFun(html){//js
-    var dFun=html.match(/(function)(.*?)(<)/g);
+    var dFun=html.match(/( )[a-zA-Z_$][a-zA-Z_$0-9]*((\()|( \())/g);
     if(dFun!=null){
       dFun.each(function(a,i){
-        dFun[i]=a.substring(a.lastIndexOf(" ")+1,a.length-1);
+        dFun[i]=a.substring(0,a.length-1).trim();
       });
       dFun.sortByAttr("length",false);
       dFun.each(function(a,i){
-        if(a!=""&&a!="function"){//匿名函数排除掉
-          html=html.replaceAll(a,"<cd_dfun>"+a+"</cd_dfun>");
-        }
+        html=html.replaceAll(a+"[ ]*\\(","<cd_dfun>"+a+"</cd_dfun>");
       });
     }
     return html;
@@ -483,6 +481,7 @@
     });
     return html;
   }
+  
   function _geneHtmlElement(html){
     return _geneCommon(html,/(&lt;)(.*?)(&gt;)/g,"cd_tag");
   }
