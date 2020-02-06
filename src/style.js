@@ -5,7 +5,7 @@ $.reportStyle({
     id: 'JCODE'
 });
 function initStyle () {
-    return /* css */ `
+    return /* css*/` 
     .j-code {
         width: 300px;
         height: 200px;
@@ -14,11 +14,11 @@ function initStyle () {
         position: relative;
         white-space: pre;
         border-radius: 5px;
-        overflow: hidden!important;
+        overflow: hidden;
         font-size: 16px;
         line-height: 20px;
-        min-width: 245px!important;
-        text-align: left!important;
+        min-width: 245px;
+        text-align: left;
         text-indent: 0;
         background-color: rgba(240,240,240,.95);
     }
@@ -63,19 +63,6 @@ function initStyle () {
         border: 1px solid rgba(255,255,255,.5);
     }
     
-    .j-code.j_full {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%!important;
-        height: 100%!important;
-        border: 0;
-        border-radius: 0;
-        z-index: 10000;
-    }
-    .j-code.j_full .code_editor, .j-code.j_full .code_editor_view{
-        min-height: 100%!important;
-    }
     
     .j_hidden {
         overflow: hidden!important
@@ -101,9 +88,6 @@ function initStyle () {
         padding-left:35px;
     }
     
-    .j-code[jui-code-line=false] .code_editor,.j-code[jui-code-line=false] .code_editor_view{
-        padding-left: 10px!important;
-    }
     .code_line_w{
         min-height: 100%;
         position: absolute;
@@ -118,10 +102,6 @@ function initStyle () {
         border-right: 1px solid #ccc;
         color: #aaa;
         background-color: #eee;
-    }
-    .j_full .code_line_w{
-        min-height: 100%;
-        height: auto;
     }
     .j-c-dark .code_line_w{
         background-color: #444;
@@ -160,9 +140,6 @@ function initStyle () {
     }
     .j-c-dark .code_active_line{
         background-color: #333;
-    }
-    .j-code[buttons] .code_active_line{
-        top: 41px;
     }
     .code_set_w {
         width: 100%;
@@ -219,14 +196,17 @@ function initStyle () {
         resize: none;
         caret-color: #444;
     }
+    .code_editor[disabled]{
+        cursor: no-drop;
+    }
     .j-c-dark .code_editor{
         caret-color: #ddd;
     }
     
     .code_editor.bg {    background-color: rgba(20,20,20,.9)}
     cd_tag,cd_tag * {color: rgb(128,0,82)}
-    cd_str,cd_str * {color: rgb(209,74,71)!important}
-    cd_note,cd_note * {color: rgb(106,153,85)!important}
+    cd_str,cd_str * {color: rgb(209,74,71)}
+    cd_note,cd_note * {color:rgb(106,153,85)}
     cd_attr{color: rgb(0,16,144);}
     cd_attr_equal{color: #666;}
     cd_attr_punc{color: rgb(128,0,0);}
@@ -238,7 +218,7 @@ function initStyle () {
     .j-c-dark cd_attr_equal{color: #ddd;}
     .j-c-dark cd_attr_punc{color: rgb(128,128,128);}
     .j-c-dark cd_html_c{color: rgb(128,0,0);}
-    .j-c-dark cd_note,.j-c-dark cd_note{color: #6a8a35;}
+    .j-c-dark cd_note,.j-c-dark cd_note *{color: #6a8a35;}
 
     .j-c-js-punc{
         color: #666;
@@ -309,6 +289,30 @@ function initStyle () {
     }
     .j-c-dark .j-c-ed-lines div{
         background-color:#444;
+    }
+    .j-code.j_full {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%!important;
+        height: 100%!important;
+        max-width: 100%!important;
+        max-height: 100%!important;
+        border: 0;
+        border-radius: 0;
+        z-index: 1000;
+    }
+    .j-code.j_full .code_editor, .j-code.j_full .code_editor_view{
+        min-height: 100%!important;
+        width: 100%!important;
+    }
+    .j-code.j_full .code_set_w{
+        border: 0;
+        border-radius: 0;
+    }
+    .j-code.j_full .code_line_w{
+        min-height: 100%;
+        height: auto;
     }
     #j_c_copy{
         height:0px;position:fixed;top:-100px;white-space:pre;opacity:0;

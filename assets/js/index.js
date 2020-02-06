@@ -1,9 +1,23 @@
 var index=-1;
 var n=9;
+J.cls('demo-code').each(function(dom){
+  new TCEditor({
+    el:dom,
+    theme: 'dark',
+    height: 'auto',
+    width: '80%',
+    buttons: true
+  })
+})
 J.ready(function(){
   J.noteStyle("simple");
-  Jcode.extend("color:");
+  // Jcode.extend("color:");
   J.cls("api-item").clk(function(){
+    J.show('文档升级中, 请先参考 github README.md, 即将跳转...')
+    setTimeout(function(){
+      J.open('https://github.com/theajack/tc-editor/blob/master/README.md')
+    },2000)
+    return;
     index=this.index();
     if(index==0){
       J.id("naviLeft").hide();
@@ -26,9 +40,33 @@ function changeNaviText(){
     J.id("naviRight").findClass("navi-text").txt("下一节:"+text);
   }
 }
+var editors=[];
 function showApiDetail(i){
+  editors = [];
   J.id("apiShowContent").html(data[i]);
-  Jcode.init();
+  J.id("apiShowContent").findTag('editor').each(function(dom){
+    var disabled = dom.hasAttr('disabled');
+    var buttons = !(disabled);
+    if(dom.hasAttr('buttons')){
+      var attr = dom.attr('buttons');
+      console.log(attr)
+      if(attr ==='all'||attr==='true'||attr===''){
+        buttons = true;
+      }else{
+        buttons = attr.split(';')
+      }
+    }
+    var height = (dom.hasAttr('height'))?dom.attr('height'):'auto';
+    var width = (dom.hasAttr('width'))?dom.attr('width'):'auto';
+    editors.push(new TCEditor({
+      el:dom,
+      disabled: disabled,
+      buttons: buttons,
+      height: height,
+      width: width
+    }))
+  })
+  // Jcode.init();
   J.id("apiShowWrapper").fadeIn();
 }
 function nextApi(obj){

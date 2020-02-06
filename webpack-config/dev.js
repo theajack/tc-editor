@@ -24,15 +24,15 @@ module.exports = {
                     }
                 ]
             },
-            {
-                test: /(.js)$/,
-                loader: 'eslint-loader',
-                enforce: 'pre',
-                exclude: /node_modules/,
-                options: {
-                    configFile: './.eslintrc.js'
-                }
-            }
+            // {
+            //     test: /(.js)$/,
+            //     loader: 'eslint-loader',
+            //     enforce: 'pre',
+            //     exclude: /node_modules/,
+            //     options: {
+            //         configFile: './.eslintrc.js'
+            //     }
+            // }
         ]
     }
 };

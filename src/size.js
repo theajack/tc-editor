@@ -1,3 +1,5 @@
+import {checkSizeAuto} from './event';
+
 export function initSize () {
     let item = this.el;
     let w = this.config.width;
@@ -8,26 +10,36 @@ export function initSize () {
         width: w,
         height: h
     });
-    if (h == 'auto') {
-        this.els.view1.style('height', h);
-        this.els.view2.style('height', h);
-        this.els.codearea.data('height', 'auto');
-        this.els.codearea.style('overflow-y', 'hidden').style('height', h);
+    if (h === 'auto') {
+        this.els.bottomView.data('height', h).style('height', h);
+        this.els.topView.data('height', h).style('height', h);
+        this.els.codearea.data('height', h).style({
+            'overflow-y': 'hidden',
+            'height': h
+        });
+        checkSizeAuto.call(this, 'height');
     } else {
-        [this.els.view1, this.els.view2, this.els.codearea].forEach(each => {
+        [
+            this.els.bottomView.data('height', '100%'),
+            this.els.topView,
+            this.els.codearea
+        ].forEach(each => {
             each.style('height', '100%');
         });
     }
-    if (w == 'auto') {
-        this.els.view1.style('width', h);
-        this.els.view2.style('width', h);
+    window.checkSizeAuto = checkSizeAuto;
+    window._this = this;
+    if (w === 'auto') {
+        this.els.bottomView.style('width', w);
+        this.els.topView.data('width', w).style('width', w);
         this.els.codearea.data('width', 'auto').style({
             'overflow-x': 'hidden',
             'width': w
         });
+        checkSizeAuto.call(this, 'width');
     } else {
-        this.els.view1.style('width', '100%');
-        this.els.view2.style('width', '100%');
+        this.els.bottomView.style('width', '100%');
+        this.els.topView.style('width', '100%');
         this.els.codearea.style('width', '100%');
     }
 }

@@ -8,23 +8,24 @@ module.exports = {
     entry: path.resolve('./', 'src/index.js'),
     output: {
         path: path.resolve('./', 'dist'),
-        filename: 'easy-editor.' + version + '.min.js',
-        library: 'EasyEditor',
+        filename: 'tc-editor.' + version + '.min.js',
+        library: 'TCEditor',
         libraryTarget: 'umd',
         libraryExport: 'default',
     },
     module: {
-        rules: [{
-            test: /(.js)$/,
-            use: [{
-                loader: 'babel-loader',
+        rules: [
+            {
+                test: /(.js)$/,
+                use: [{
+                    loader: 'babel-loader',
+                }]
+            }, {
+                test: /(.js)$/,
+                use: [{
+                    loader: path.resolve('./', 'helper/zipCssInJs.js')
+                }],
+                exclude: /node_modules/
             }]
-        },
-        {
-            test: /(.js)$/,
-            use: [{
-                loader: path.resolve('./', 'helper/zipCssInJs.js')
-            }]
-        }]
     }
 };

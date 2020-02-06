@@ -343,6 +343,12 @@ a{
   color:#f22;
   text-decoration:underline;
 }
+.demo-code {
+  display: block!important;
+  margin: 10px auto;
+  max-width: 800px;
+  min-width: 320px!important;
+}
 /*end footer*/
 @media screen and (max-width:1000px) {
   #header{

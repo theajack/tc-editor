@@ -1,9 +1,9 @@
 import $ from 'easy-dom-util';
 
-let paddingTop = 11;
+let paddingTop = 10;
 
 export function setActiveLineDefTop (t) {
-    paddingTop = 11 + t;
+    paddingTop = 10 + t;
     setActiveLineTop.call(this, 0);
 }
 
@@ -23,7 +23,7 @@ export function setActiveLine (index) {
     } else if (index === 'show') {
         this.els.activeLine.style('opacity', '1');
     } else {
-        var top = index * this.mark.lineHeight;
+        var top = index * this._mark.lineHeight;
         this.els.activeLine.style('transform', 'translate(0,' + top + 'px)');
         this.els.activeLine.style('-webkit-transform', '-webkit-translate(0,' + top + 'px)');
         if (this.els.line && this.els.line.el.children.length > 0) {
@@ -63,7 +63,7 @@ function _getCurLine (obj) {
 }
 
 export function setActiveLineHeight () {
-    this.el.child(0).style('height', this.mark.lineHeight + 'px'); // activeLine
+    this.el.child(0).style('height', this._mark.lineHeight + 'px'); // activeLine
 }
 
 

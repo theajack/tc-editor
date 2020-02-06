@@ -29,7 +29,7 @@ function _geneCommon (html, reg, tag, type) {
             }
             arr[i] = '<' + tag + '>' + a + '</' + tag + '>';
         });
-        replaceWithArray(html, reg, arr);
+        html = replaceWithArray(html, reg, arr);
     }
     return html;
 }
@@ -93,8 +93,6 @@ function regExp (reg) {
     return new RegExp(reg + '(?![^<]*>|[^<>]*<\/)', 'g');
 }
 function renderColor (text) {
-    // var html = '';
-    // debugger
     text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     // text = text.replace('\t', '    ').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     text = pipe(text, [

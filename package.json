@@ -1,7 +1,7 @@
 {
-    "name": "easy-editor",
-    "version": "1.2.0",
-    "description": "功能强大的轻量级代码编辑器",
+    "name": "tc-editor",
+    "version": "1.0.0",
+    "description": "A simple code editor js library 功能强大的轻量级代码编辑器",
     "main": "index.html",
     "author": "theajack <contact@theajack.com>",
     "license": "MIT",
@@ -11,7 +11,7 @@
         "代码编辑器"
     ],
     "scripts": {
-        "build": "webpack --config webpack-config/build.js",
+        "build": "webpack --config webpack-config/build.js && npm run build:npm",
         "build:npm": "node ./helper/build-npm.js",
         "dev": "webpack-dev-server --open --config webpack-config/dev.js",
         "publish": "npm publish npm",

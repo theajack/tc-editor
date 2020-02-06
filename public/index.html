@@ -11,9 +11,18 @@
 
 <body>
     <div id='app'>
+import TCEditor from 'tc-editor';
+new TCEditor({el: '#editor'});
     </div>
-    <div id='app2'>
-    </div>
+    <!-- <div id='app2'>
+&lt;!--script 标签引用->
+&lt;div id='editor'>&lt;/div>
+&lt;script src="https://www.theajack.com/tc-editor/dist/tc-editor.latest.min.js">&lt;/script>
+&lt;script>
+    new TCEditor({el: '#editor'});
+&lt;/script>
+    </div> -->
+    <div id='app2'></div>
     <script src="./bundle.js"></script>
 </body>
 

@@ -17,13 +17,13 @@ export let buttons = {
 export function initButtons () {
     let item = this.el;
     var mh = 45;
-    if (this.config.buttons !== null) {
+    if (this.config.buttons !== false) {
         let pl = 30;
         setLinePT.call(this, pl);
         setActiveLineDefTop.call(this, pl);
         pl += 10;
-        this.els.view1.style('padding-top', pl + 'px');
-        this.els.view2.style('padding-top', pl + 'px');
+        this.els.bottomView.style('padding-top', pl + 'px');
+        this.els.topView.style('padding-top', pl + 'px');
         this.els.codearea.style('padding-top', pl + 'px');
         mh += pl;
         var btn = this.config.buttons;
@@ -41,6 +41,9 @@ export function initButtons () {
             });
         }
         item.append($.create('div.code_set_w').append(arr));
+    } else {
+        setLinePT.call(this, 0);
+        setActiveLineDefTop.call(this, 0);
     }
     item.style('min-height', mh + 'px');
 }
@@ -49,6 +52,6 @@ function createButton (name, btnInfo, editor) {
         .attr('title', btnInfo[0])
         .src(btnInfo[1])
         .click(function () {
-            editor[name](this);
+            editor[name]();
         });
 }

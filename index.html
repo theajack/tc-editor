@@ -7,24 +7,22 @@
     <meta name="description" content="基于Jetterjs的代码编辑器js库">  
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=8">
-    <title>Jcode.js by theajack</title>
+    <title>tc-editor by theajack</title>
     <link rel="icon" href="assets/images/icon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="assets/css/index.css"/>
   </head>
   <body>
     <!--header-->
     <div id="header">
-      <div id="title">Jcode.js</div>
-      <div id="smallTitle">基于Jetterjs的代码编辑器的js库</div>
+      <div id="title">tc-editor</div>
+      <div id="smallTitle">功能强大，体积小巧，简单易用的代码编辑器</div>
       <div id="viewProject" class="border-btn" onclick="J.open('https://github.com/theajack/jcode')">View project on github</div>
       
     </div>
     <!--intro-->
     <div id="introPart" class="bg-gray text-black part clearfix">
       <div class="part-title hassmall">功能</div>
-      <div class="part-title small">这是一款基于Jetterjs的代码编辑器的js库,
-        只需在html中引入一个(或两个)script标签,
-        就可以在您的html文件中插入代码编辑器
+      <div class="part-title small">tc-editor 是一款 功能强大，体积小巧（包含图标素材和依赖库共 40kb），简单易用的代码编辑器，一行代码便可以生成一个在线的代码编辑器，支持强大的自定义功能配置，多行代码缩进缩退，向vscode看齐的代码风格。
         <div class="clearfix">
           <div class="func-item">
             <img class="func-img" src="assets/images/tab.png"/>
@@ -44,11 +42,36 @@
 		
     
     <!--download-->
+
     <div id="downloadPart" class="bg-dark text-white part">
-      <div class="part-title hassmall">下载</div>
-      <div class="part-title small">引用： &lt;script src="https://www.theajack.com/jcode/assets/js/jcode.min.js"&gt;&lt;/script&gt;<br/>
-      若是您没有使用jetter,您还需引用： &lt;script src="https://www.theajack.com/jetterjs/assets/js/jetter2.min.js"&gt;&lt;/script&gt;</div>
-      <div id="copyBtn" class="border-btn" onclick="J.open('assets/js/jcode.min.js')">或点击复制源码</div>
+      <div class="part-title">安装使用</div>
+      <div class='demo-code'>
+&lt;div id='editor'>&lt;/div>
+      </div>
+      <div class='demo-code'>
+// npm安装
+npm i tc-editor
+      </div>
+      <div class='demo-code'>
+import TCEditor from 'tc-editor';
+new TCEditor({el: '#editor'});
+      </div>
+      <div class='demo-code'>
+&lt;!--script 标签引用-->
+&lt;div id='editor'>&lt;/div>
+&lt;script src="https://www.theajack.com/tc-editor/dist/tc-editor.latest.min.js">&lt;/script>
+&lt;script>
+  new TCEditor({el: '#editor'});
+&lt;/script>
+      </div>
+      <!-- <div class="part-title small font-size-bigger">1.script 标签方式引入</div>
+        <div class="part-title small">引用： &lt;script src="https://www.theajack.com/cnchar/cnchar.min.js"&gt;&lt;/script&gt;</div>
+        <div class="part-title small font-size-bigger">2.npm 方式安装</div>
+        <div class="part-title small">安装: npm install cnchar</div>
+        <div class="part-title small">使用: import CnChar from 'cnchar' 或 const CnChar = require('cnchar')</div> -->
+      <!-- <div id="copyBtn" class="border-btn mb-install" onclick="J.open('cnchar.2.0.4.min.js')">复制源码</div> -->
+      <div id="copyBtn" class="border-btn mb-install"
+        onclick="J.open('https://github.com/theajack/tc-editor')">查看详细</div>
     </div>
     <!--api-->
     <div id="apiPart" class="bg-gray part">
@@ -134,12 +157,13 @@
         </div>
       </div>
       <div id="copyright">
-        <span class="glyphicon glyphicon-copyright-mark"></span> 2017 TheaJack All rights reserved
+        <span class="glyphicon glyphicon-copyright-mark"></span> 2020 TheaJack All rights reserved
       </div>
     </div>
     <script src="assets/js/jetter2.min.js"></script>
     <script>J.new=J.ct</script>
-    <script src="assets/js/jcode.min.js"></script>
+    <!-- <script src="assets/js/jcode.min.js"></script> -->
+    <script src="dist/tc-editor.latest.min.js"></script>
     <script src="assets/js/apiData.js"></script>
     <script src="assets/js/index.js"></script>
     <!-- <script name="jcodejs" src="https://www.theajack.com/assets/js/stat.js"></script> -->

@@ -25,10 +25,11 @@ export function initEvent () {
             var k = e.keyCode;
             if (k == 13 || k == 9) {// 回车和tab键
                 geneViewCode.call(this);
-            } else if (
-                k === 38 || k === 40 || k === 13 || k === 8 ||
+            }
+            if (
+                k === 38 || k === 40 || k === 13 || k === 8 || // 上下 回车 删除
                 (e.ctrlKey && (k === 86 || k === 88 || k === 89 || k === 90)) // ctrl + v x y z
-            ) {// 上下 回车 删除
+            ) {
                 activeLine.call(this);
             }
         },
@@ -70,7 +71,7 @@ export function geneViewCode () {
     _getView(this.el, 1).html(html);
     var js = renderJS(val);
     _getView(this.el, 0).html(js);
-    _checkSizeAuto(this.els.codearea);
+    checkSizeAuto.call(this);
     reinitLine.call(this);
 }
 
@@ -80,15 +81,20 @@ function _getView (obj, i) {
     }
     return obj.query('.code_editor_view');
 }
-function _checkSizeAuto (obj) {
-    _checkSizeAutoPart(obj, 'height');
-    _checkSizeAutoPart(obj, 'width');
+export function checkSizeAuto (type = 'all') {
+    if (type === 'all' || type === 'height') {
+        _checkSizeAutoPart.call(this, 'height');
+    }
+    if (type === 'all' || type === 'width') {
+        _checkSizeAutoPart.call(this, 'width');
+    }
 }
-function _checkSizeAutoPart (obj, s) {
-    if (obj.data(s) === 'auto') {
-        var n = obj.prev().style(s);
+function _checkSizeAutoPart (s) {
+    let obj = this.els.codearea;
+    if (obj.data(s) === 'auto' && !this.config.fullScreen) {
+        var n = obj.prev().data(s);
         if (n === 'auto') {
-            setTimeout(function () { obj.style(s, obj.prev().style(s)); }, 0);
+            obj.style(s, obj.prev().style(s));
         } else {
             obj.style(s, n);
         }
