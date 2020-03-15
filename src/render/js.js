@@ -1,7 +1,7 @@
 
 export function renderJS (val) {
     val = val.replace(/\&lt;/g, 'lllltttt').replace(/\&gt;/g, 'ggggtttt');
-    return renderColor(val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ');
+    return renderColor(val.replace(/</g, '&lt;').replace(/>/g, '&gt;'));
 }
 
 var keyword1 = ['var', 'new', 'const', 'let', 'typeof', 'in', 'function', 'this', 'true', 'false', 'null', 'undefined', 'async', 'delete', 'class', 'extends']; // var

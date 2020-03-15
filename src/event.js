@@ -68,7 +68,7 @@ export function geneViewCode () {
     var val = this.els.codearea.value();
     let code = render(val, ['html', 'js']);
     _getView(this.el, 1).html(code);
-    // _getView(this.el, 0).html('');
+    // _getView(this.el, 0).html(code);
     checkSizeAuto.call(this);
     reinitLine.call(this);
 }
