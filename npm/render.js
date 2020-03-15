@@ -47,7 +47,7 @@ function _geneCommon(html, reg, tag, type) {
 
       arr[i] = '<' + tag + '>' + a + '</' + tag + '>';
     });
-    (0, _util.replaceWithArray)(html, reg, arr);
+    html = (0, _util.replaceWithArray)(html, reg, arr);
   }
 
   return html;

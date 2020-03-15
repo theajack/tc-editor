@@ -5,6 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.initEvent = initEvent;
 exports.geneViewCode = geneViewCode;
+exports.checkSizeAuto = checkSizeAuto;
 
 var _key_down = _interopRequireDefault(require("./key_down"));
 
@@ -98,7 +99,7 @@ function geneViewCode() {
 
   _getView(this.el, 0).html(js);
 
-  _checkSizeAuto(this.els.codearea);
+  checkSizeAuto.call(this);
 
   _line.reinitLine.call(this);
 }
@@ -111,20 +112,26 @@ function _getView(obj, i) {
   return obj.query('.code_editor_view');
 }
 
-function _checkSizeAuto(obj) {
-  _checkSizeAutoPart(obj, 'height');
+function checkSizeAuto() {
+  var type = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 'all';
 
-  _checkSizeAutoPart(obj, 'width');
+  if (type === 'all' || type === 'height') {
+    _checkSizeAutoPart.call(this, 'height');
+  }
+
+  if (type === 'all' || type === 'width') {
+    _checkSizeAutoPart.call(this, 'width');
+  }
 }
 
-function _checkSizeAutoPart(obj, s) {
-  if (obj.data(s) === 'auto') {
-    var n = obj.prev().style(s);
+function _checkSizeAutoPart(s) {
+  var obj = this.els.codearea;
+
+  if (obj.data(s) === 'auto' && !this.config.fullScreen) {
+    var n = obj.prev().data(s);
 
     if (n === 'auto') {
-      setTimeout(function () {
-        obj.style(s, obj.prev().style(s));
-      }, 0);
+      obj.style(s, obj.prev().style(s));
     } else {
       obj.style(s, n);
     }

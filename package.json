@@ -1,6 +1,6 @@
 {
     "name": "tc-editor",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "A simple code editor js library 功能强大的轻量级代码编辑器",
     "main": "index.html",
     "author": "theajack <contact@theajack.com>",

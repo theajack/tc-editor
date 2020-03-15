@@ -1,7 +1,7 @@
 import keyDown from './key_down';
-import {renderHTML, renderJS} from './render';
 import {setActiveLine, activeLine, setActiveLineTop} from './activeLine';
 import {reinitLine, setLineTop} from './line';
+import render from './render/index';
 
 export function initEvent () {
     // this
@@ -64,13 +64,11 @@ export function initEvent () {
 //     }
 //     // geneViewCode();
 // }
-
 export function geneViewCode () {
     var val = this.els.codearea.value();
-    var html = renderHTML(val);
-    _getView(this.el, 1).html(html);
-    var js = renderJS(val);
-    _getView(this.el, 0).html(js);
+    let code = render(val, ['html', 'js']);
+    _getView(this.el, 1).html(code);
+    // _getView(this.el, 0).html('');
     checkSizeAuto.call(this);
     reinitLine.call(this);
 }

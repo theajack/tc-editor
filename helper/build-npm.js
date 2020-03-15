@@ -39,10 +39,9 @@ function copyLatest () {
 function transEs6ByBabel () {
     gulp.src('src/*.js')
         .pipe(babel({presets: ['@babel/env']}))
-        .pipe(gulp.dest('npm'))
-        .end(() => {
+        .pipe(gulp.dest('npm').on('finish', () => {
             zipCss();
-        });
+        }));
 }
 
 function zipCss () {

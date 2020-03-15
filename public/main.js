@@ -1,5 +1,6 @@
 import Editor from '../src';
 // import Editor from '../npm';
+// import Editor from '../npm';
 // import $ from '../tnpm/repository';
 // import $ from '../src';
 // var a = new Editor({
@@ -34,7 +35,7 @@ new Editor({
     new TCEditor({el: '#editor'});
 </script>`,
     height: 'auto',
-    width: 300,
+    width: '100%',
     // width: 800,
     // height: 300,
     // code: 'var b=true;',

@@ -1,4 +1,4 @@
-# [easy-editor](https://github.com/theajack/tc-editor)
+# [tc-editor](https://github.com/theajack/tc-editor)
 
 #### [theajack](https://github.com/theajack)
 
@@ -104,6 +104,7 @@ editor[api](args);
 ```
 
 api 方法说明如下：
+
 |  名称  |  返回值  | 参数 | 备注 |
 | :----: | :----: | :----: | :----: |
 | clearCode | -- | -- | 清空代码 |

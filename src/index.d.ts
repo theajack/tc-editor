@@ -1,6 +1,6 @@
 import {Ele, ToolStatic} from 'easy-dom-util';
 
-declare type buttonType = 'fontSizeUp' | 'fontSizeDown' | 'fullScreen' | 'fix' | 'changeTheme' | 'clearCode' | 'resetCode' | 'copy' | 'submit';
+declare type buttonType = 'fontSizeUp' | 'fontSizeDown' | 'fullScreen' | 'changeTheme' | 'clearCode' | 'resetCode' | 'copy' | 'submit';
 declare type themeType = 'normal' | 'dark';
 
 declare interface configStatic {

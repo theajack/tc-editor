@@ -62,7 +62,7 @@ function () {
 
     _classCallCheck(this, Editor);
 
-    this.el = _easyDomUtil["default"].query(el);
+    this.el = _easyDomUtil["default"].query(el).style('opacity', '0');
     this.els = {};
     this._mark = {
       lineHeight: 20
@@ -89,6 +89,8 @@ function () {
     if (this.config.onload) {
       this.config.onload.call(this);
     }
+
+    this.el.style('opacity', '1');
   }
 
   _createClass(Editor, [{
@@ -156,6 +158,8 @@ function () {
         _fullScreen = !this.el.hasClass(_ce_full);
       }
 
+      this.config.fullScreen = _fullScreen;
+
       if (_fullScreen) {
         this.el.addClass(_ce_full);
 
@@ -164,9 +168,10 @@ function () {
         this.el.rmClass(_ce_full);
 
         _easyDomUtil["default"].query('body').rmClass(_ce_hidden);
+
+        _event.checkSizeAuto.call(this);
       }
 
-      this.config.fullScreen = _fullScreen;
       return _fullScreen;
     }
   }, {
@@ -181,10 +186,10 @@ function () {
           'font-size': size + 'px',
           'line-height': size + 4 + 'px'
         });
-        countLineHeight.call(this, par.query('._bottom')[0], function (lineHeight) {
+        countLineHeight.call(this, this.els.bottomView, function (lineHeight) {
           _this._mark.lineHeight = lineHeight;
 
-          if (_this.config.height === 'auto') {
+          if (_this.config.height === 'auto' || _this.config.width === 'auto') {
             _event.geneViewCode.call(_this);
           }
 
@@ -293,8 +298,8 @@ function initCodeFrame() {
     this.fullScreen(true);
   }
 
-  if (this.config.theme === 'normal') {
-    this.changeTheme('normal');
+  if (this.config.theme === 'dark') {
+    this.changeTheme('dark');
   }
 
   item.empty().append(this.els.activeLine, this.els.bottomView, this.els.topView, this.els.codearea);
@@ -318,8 +323,6 @@ function initCodeFrame() {
 }
 
 function countLineHeight(el, cb) {
-  var _this2 = this;
-
   el.style('height', 'auto');
   setTimeout(function () {
     var length = 100,
@@ -340,7 +343,7 @@ function countLineHeight(el, cb) {
     var lineHeight = (el.el.offsetHeight - parseInt(padding[0]) - parseInt(padding[2])) / length; // 50是padding
 
     el.html(content);
-    el.style('height', _this2.config.height + (typeof _this2.config.height === 'number' ? 'px' : ''));
+    el.style('height', el.data('height'));
     cb(lineHeight);
   }, 10);
 }

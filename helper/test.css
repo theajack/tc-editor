@@ -1,0 +1,54 @@
+.asss{
+
+}
+#aa{
+    background-color: #ddd;
+    font-size: 12px;
+    width: 100%;
+    background-image:url(111);
+    text-align: center
+}
+[attr=1]{
+    color: #ddd;
+}
+
+body{
+
+}
+.aaa, .aaa{
+
+}
+
+@charset{
+
+}
+
+@keyframes mymove
+{
+from {top:0px;}
+to {top:200px;}
+}
+
+@-moz-keyframes mymove /* Firefox */
+{
+from {top:0px;}
+to {top:200px;}
+}
+
+@-webkit-keyframes mymove /* Safari 和 Chrome */
+{
+from {top:0px;}
+to {top:200px;}
+}
+
+@-o-keyframes mymove /* Opera */
+{
+from {top:0px;}
+to {top:200px;}
+}
+
+@media screen and (max-width: 300px) {
+    body {
+        background-color:lightblue;
+    }
+}

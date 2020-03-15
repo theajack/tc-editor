@@ -1,40 +1,6 @@
-import {replaceWithArray} from './util';
-
-export function renderHTML (val) {
-    var html = val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ';// 为了不让最后一个字符是换行
-    html = _geneHtmlNote(html);
-    html = _geneHtmlElement(html);
-    html = _geneString(html);
-    return html;
-}
-function _geneHtmlElement (html) {
-    return _geneCommon(html, /(&lt;)(.*?)(&gt;)/g, 'cd_tag', 'html');
-}
-function _geneString (html) {
-    return _geneCommon(html, /((")(.*?)("))|((')(.*?)('))/g, 'cd_str');
-}
-function _geneHtmlNote (html) {
-    return _geneCommon(html, /(&lt;!--)((.|\n)*?)(--&gt;)/g, 'cd_note');
-}
-function _geneCommon (html, reg, tag, type) {
-    var arr = html.match(reg);
-    if (arr != null) {
-        arr.forEach((a, i) => {
-            if (type === 'html') {
-                a = _geneCommon(a, /(&lt;)|(&gt;)|(\/)/g, 'cd_attr_punc');
-                a = _geneCommon(a, /( )(\S*?)(=)/g, 'cd_attr', 'attr');
-            }
-            if (type === 'attr') {
-                a = a.replace('=', '<cd_attr_equal>=</cd_attr_equal>');
-            }
-            arr[i] = '<' + tag + '>' + a + '</' + tag + '>';
-        });
-        html = replaceWithArray(html, reg, arr);
-    }
-    return html;
-}
 
 export function renderJS (val) {
+    val = val.replace(/\&lt;/g, 'lllltttt').replace(/\&gt;/g, 'ggggtttt');
     return renderColor(val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ');
 }
 
@@ -93,7 +59,6 @@ function regExp (reg) {
     return new RegExp(reg + '(?![^<]*>|[^<>]*<\/)', 'g');
 }
 function renderColor (text) {
-    text = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
     // text = text.replace('\t', '    ').replace(/</g, '&lt;').replace(/>/g, '&gt;');
     text = pipe(text, [
         // /("(?:[^"\\]|\.)*")|(`(?:[^"\\]|\.)*`)|('(?:[^"\\]|\.)*')/g
@@ -106,7 +71,7 @@ function renderColor (text) {
             'str'
         ], // 有bug：需要不包含字符串本身
         ['(//.*(\n|$))|(\\/\\*(.|\n)*?\\*\\/)', 'cm'],
-        ['\\/[a-zA-Z0-9' + sign.slice(1).join('') + ' ]+\\/g?', 'reg'], // 正则
+        ['\\/[a-zA-Z0-9' + sign.slice(1).join('') + ' ]+\\/[gi]?', 'reg'], // 正则
         grArr(keyword1, 'k1'),
         grArr(keyword1, 'k1'), // 重复是为了解决相邻同类元素 无法被匹配 比如 function function 只有第一个function被匹配，因为他们共享一个空格
         grArr(keyword2, 'k2'),
@@ -115,11 +80,11 @@ function renderColor (text) {
         grArr(keyword3, 'k3'),
         [signBegin + '[0-9]+(\\.?[0-9]+)?' + signEnd, 'num', /[0-9]+(.?[0-9]+)?/g],
         // [signBegin+'[0-9]+'+signEnd,'num',/[0-9]+/g],
-        [signBegin + '[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]*\\(', 'f', new RegExp('[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]*', 'g')],
+        [signBegin + '[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]* ?\\(', 'f', new RegExp('[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]*', 'g')],
         ['[' + sign.join('') + ']', 'punc', new RegExp('[' + sign.join('') + ']', 'g')],
     ]);
     text = text.replace(/\&lt;/g, sp('<', 'punc')).replace(/\&gt;/g, sp('>', 'punc')).replace(/;/g, sp(';', 'punc')).replace(/&/g, sp('&', 'punc'));
-    
+    text = text.replace(/lllltttt/g, '&amp;lt;').replace(/ggggtttt/g, '&amp;gt;');
     return text;
 }
 

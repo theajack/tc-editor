@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .aa{}
+    </style>
+
+    <script>
+        export function renderJS (val) {
+            if (html) {
+                val = val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ';
+                return val.replace(/&lt;script&gt;(.|\n)*?&lt;\/script&gt;/g, function (str) {
+                    // console.log(str);
+                    return (str.substring(0, str.indexOf('&gt;') + 4) +
+                    renderColor(str.substring(str.indexOf('&gt;') + 4, str.lastIndexOf('&lt;/') - 1)) +
+                    str.substring(str.lastIndexOf('&lt;/') - 1));
+                });
+            }
+            return renderColor(val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ');
+        }
+    </script>
+    <script></script>
+    <script src="aaa"></script>
+</body>
+</html>

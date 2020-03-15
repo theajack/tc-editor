@@ -7,7 +7,37 @@ import {initLine, setLineHeight} from './line';
 import {initActiveLine, setActiveLineHeight} from './activeLine';
 import {copy} from './util';
 import version from './version';
+// import render from './render/index';
+// document.getElementById('app').innerHTML = render(`<!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+// </head>
+// <body>
+//     <style>
+//         .aa{}
+//     </style>
 
+//     <script>
+//         export function renderJS (val) {
+//             if (html) {
+//                 val = val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ';
+//                 return val.replace(/&lt;script&gt;(.|\n)*?&lt;\/script&gt;/g, function (str) {
+//                     // console.log(str);
+//                     return (str.substring(0, str.indexOf('&gt;') + 4) +
+//                     renderColor(str.substring(str.indexOf('&gt;') + 4, str.lastIndexOf('&lt;/') - 1)) +
+//                     str.substring(str.lastIndexOf('&lt;/') - 1));
+//                 });
+//             }
+//             return renderColor(val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ');
+//         }
+//     </script>
+//     <script src='aaa'>aa</script>
+//     <script src="aaa"></script>
+// </body>
+// </html>`, ['html', 'js']);
 class Editor {
     constructor ({
         el,
@@ -52,18 +82,6 @@ class Editor {
             this.config.onload.call(this);
         }
         this.el.style('opacity', '1');
-    }
-
-    fix () {
-        if (!this._mark.flag) {
-            this._mark.flag = true;
-            this.els.bottomView.style('left', '3px');
-            this.els.topView.style('left', '3px');
-        } else {
-            this._mark.flag = false;
-            this.els.bottomView.style('left', '0px');
-            this.els.topView.style('left', '0px');
-        }
     }
     changeTheme (theme) {
         if (typeof theme === 'undefined') {
@@ -210,10 +228,6 @@ function initCodeFrame () {
     initButtons.call(this);
     if (code !== '') {
         geneViewCode.call(this);
-    }
-    if (window.navigator.userAgent.indexOf('iPhone') !== -1) {
-        this.els.bottomView.style('left', '3px');
-        this.els.topView.style('left', '3px');
     }
     initEvent.call(this);
 }
