@@ -31,6 +31,36 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
+// import render from './render/index';
+// document.getElementById('app').innerHTML = render(`<!DOCTYPE html>
+// <html lang="en">
+// <head>
+//     <meta charset="UTF-8">
+//     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//     <title>Document</title>
+// </head>
+// <body>
+//     <style>
+//         .aa{}
+//     </style>
+//     <script>
+//         export function renderJS (val) {
+//             if (html) {
+//                 val = val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ';
+//                 return val.replace(/&lt;script&gt;(.|\n)*?&lt;\/script&gt;/g, function (str) {
+//                     // console.log(str);
+//                     return (str.substring(0, str.indexOf('&gt;') + 4) +
+//                     renderColor(str.substring(str.indexOf('&gt;') + 4, str.lastIndexOf('&lt;/') - 1)) +
+//                     str.substring(str.lastIndexOf('&lt;/') - 1));
+//                 });
+//             }
+//             return renderColor(val.replace(/</g, '&lt;').replace(/>/g, '&gt;') + ' ');
+//         }
+//     </script>
+//     <script src='aaa'>aa</script>
+//     <script src="aaa"></script>
+// </body>
+// </html>`, ['html', 'js']);
 var Editor =
 /*#__PURE__*/
 function () {
@@ -56,7 +86,11 @@ function () {
         _ref$tab = _ref.tab,
         tab = _ref$tab === void 0 ? '\t' : _ref$tab,
         onload = _ref.onload,
+        _ref$toast = _ref.toast,
+        toast = _ref$toast === void 0 ? window.alert : _ref$toast,
         onsubmit = _ref.onsubmit,
+        _ref$language = _ref.language,
+        language = _ref$language === void 0 ? ['js'] : _ref$language,
         _ref$fullScreen = _ref.fullScreen,
         fullScreen = _ref$fullScreen === void 0 ? false : _ref$fullScreen;
 
@@ -67,6 +101,7 @@ function () {
     this._mark = {
       lineHeight: 20
     };
+    this.toast = toast;
     this.config = {
       el: el,
       lineIndex: lineIndex,
@@ -81,7 +116,8 @@ function () {
       height: height,
       tab: tab,
       code: code,
-      fullScreen: fullScreen
+      fullScreen: fullScreen,
+      language: language
     };
     initCodeFrame.call(this);
     this.fontSize(this.config.fontSize);
@@ -94,19 +130,6 @@ function () {
   }
 
   _createClass(Editor, [{
-    key: "fix",
-    value: function fix() {
-      if (!this._mark.flag) {
-        this._mark.flag = true;
-        this.els.bottomView.style('left', '3px');
-        this.els.topView.style('left', '3px');
-      } else {
-        this._mark.flag = false;
-        this.els.bottomView.style('left', '0px');
-        this.els.topView.style('left', '0px');
-      }
-    }
-  }, {
     key: "changeTheme",
     value: function changeTheme(theme) {
       if (typeof theme === 'undefined') {
@@ -120,31 +143,26 @@ function () {
   }, {
     key: "clearCode",
     value: function clearCode() {
-      if (window.confirm('是否确认清空代码(该操作不可撤销)？')) {
-        this.els.bottomView.empty();
-        this.els.topView.empty();
-        this.els.codearea.value('').el.focus();
-      }
+      this.els.topView.empty();
+      this.els.codearea.value('').el.focus();
     }
   }, {
     key: "resetCode",
     value: function resetCode() {
-      if (window.confirm('是否确认重置代码(该操作不可撤销)？')) {
-        var c = this.els.codearea;
-        c.value(c.data('code').replace(/&lt;/g, '<').replace(/&gt;/g, '>')).el.focus();
+      var c = this.els.codearea;
+      c.value(c.data('code').replace(/&lt;/g, '<').replace(/&gt;/g, '>')).el.focus();
 
-        _event.geneViewCode.call(this);
-      }
+      _event.geneViewCode.call(this);
     }
   }, {
     key: "copy",
     value: function copy() {
       if ((0, _util.copy)(this.code())) {
-        alert('复制成功');
+        this.toast('复制成功');
         return true;
       } else {
         this.els.codearea.select();
-        alert('您的浏览器不支持该方法。请按Ctrl+V手动复制');
+        this.toast('您的浏览器不支持该方法。请按Ctrl+V手动复制');
         return false;
       }
     }
@@ -217,7 +235,7 @@ function () {
         return this.fontSize(n + 1);
       }
 
-      alert('已达到最大大小(35px)');
+      this.toast('已达到最大大小(35px)');
       return n;
     }
   }, {
@@ -229,7 +247,7 @@ function () {
         return this.fontSize(n - 1);
       }
 
-      alert('已达到最小大小(12px)');
+      this.toast('已达到最小大小(12px)');
       return n;
     }
   }, {
@@ -285,7 +303,7 @@ function initCodeFrame() {
   }
 
   this.els.activeLine = (0, _activeLine.initActiveLine)();
-  this.els.bottomView = _easyDomUtil["default"].create('pre.code_editor_view._bottom').html(code);
+  this.els.bottomView = _easyDomUtil["default"].create('pre.code_editor_view._bottom');
   this.els.topView = _easyDomUtil["default"].create('pre.code_editor_view').html(code);
   this.els.codearea = _easyDomUtil["default"].create('textarea.code_editor[spellcheck=false]').html(code);
   this.els.codearea.data('code', code);
@@ -312,11 +330,6 @@ function initCodeFrame() {
 
   if (code !== '') {
     _event.geneViewCode.call(this);
-  }
-
-  if (window.navigator.userAgent.indexOf('iPhone') !== -1) {
-    this.els.bottomView.style('left', '3px');
-    this.els.topView.style('left', '3px');
   }
 
   _event.initEvent.call(this);

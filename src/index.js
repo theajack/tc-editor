@@ -52,7 +52,9 @@ class Editor {
         height = 200,
         tab = '\t',
         onload,
+        toast = window.alert,
         onsubmit,
+        language = ['js'],
         fullScreen = false
     }) {
         this.el = $.query(el).style('opacity', '0');
@@ -60,6 +62,7 @@ class Editor {
         this._mark = {
             lineHeight: 20
         };
+        this.toast = toast;
         this.config = {
             el,
             lineIndex,
@@ -74,7 +77,8 @@ class Editor {
             height,
             tab,
             code,
-            fullScreen
+            fullScreen,
+            language
         };
         initCodeFrame.call(this);
         this.fontSize(this.config.fontSize);
@@ -92,26 +96,21 @@ class Editor {
         return theme;
     }
     clearCode () {
-        if (window.confirm('是否确认清空代码(该操作不可撤销)？')) {
-            this.els.bottomView.empty();
-            this.els.topView.empty();
-            this.els.codearea.value('').el.focus();
-        }
+        this.els.topView.empty();
+        this.els.codearea.value('').el.focus();
     }
     resetCode () {
-        if (window.confirm('是否确认重置代码(该操作不可撤销)？')) {
-            var c = this.els.codearea;
-            c.value(c.data('code').replace(/&lt;/g, '<').replace(/&gt;/g, '>')).el.focus();
-            geneViewCode.call(this);
-        }
+        var c = this.els.codearea;
+        c.value(c.data('code').replace(/&lt;/g, '<').replace(/&gt;/g, '>')).el.focus();
+        geneViewCode.call(this);
     }
     copy () {
         if (copy(this.code())) {
-            alert('复制成功');
+            this.toast('复制成功');
             return true;
         } else {
             this.els.codearea.select();
-            alert('您的浏览器不支持该方法。请按Ctrl+V手动复制');
+            this.toast('您的浏览器不支持该方法。请按Ctrl+V手动复制');
             return false;
         }
     }
@@ -163,7 +162,7 @@ class Editor {
         if (n < 35) {
             return this.fontSize(n + 1);
         }
-        alert('已达到最大大小(35px)');
+        this.toast('已达到最大大小(35px)');
         return n;
     }
     fontSizeDown () {
@@ -171,7 +170,7 @@ class Editor {
         if (n > 12) {
             return this.fontSize(n - 1);
         }
-        alert('已达到最小大小(12px)');
+        this.toast('已达到最小大小(12px)');
         return n;
     }
     submit () {
@@ -212,7 +211,7 @@ function initCodeFrame () {
         code = code.replace(/(\s*$)/g, '');
     }
     this.els.activeLine = initActiveLine();
-    this.els.bottomView = $.create('pre.code_editor_view._bottom').html(code);
+    this.els.bottomView = $.create('pre.code_editor_view._bottom');
     this.els.topView = $.create('pre.code_editor_view').html(code);
     this.els.codearea = $.create('textarea.code_editor[spellcheck=false]').html(code);
     this.els.codearea.data('code', code);

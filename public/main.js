@@ -1,5 +1,5 @@
-import Editor from '../src';
-// import Editor from '../npm';
+// import Editor from '../src';
+import Editor from '../npm';
 // import Editor from '../npm';
 // import $ from '../tnpm/repository';
 // import $ from '../src';
@@ -28,6 +28,7 @@ import Editor from '../src';
 new Editor({
     el: document.getElementById('app2'),
     theme: 'dark',
+    buttons: false,
     code: `<!--script 标签引用-->
 <div id='editor'></div>
 <script src="https://www.theajack.com/tc-editor/dist/tc-editor.latest.min.js"></script>
@@ -36,6 +37,7 @@ new Editor({
 </script>`,
     height: 'auto',
     width: '100%',
+    language: ['html']
     // width: 800,
     // height: 300,
     // code: 'var b=true;',

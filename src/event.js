@@ -66,7 +66,7 @@ export function initEvent () {
 // }
 export function geneViewCode () {
     var val = this.els.codearea.value();
-    let code = render(val, ['html', 'js']);
+    let code = render(val, this.config.language);
     _getView(this.el, 1).html(code);
     // _getView(this.el, 0).html(code);
     checkSizeAuto.call(this);

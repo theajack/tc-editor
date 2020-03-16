@@ -9,11 +9,11 @@ exports.checkSizeAuto = checkSizeAuto;
 
 var _key_down = _interopRequireDefault(require("./key_down"));
 
-var _render = require("./render");
-
 var _activeLine = require("./activeLine");
 
 var _line = require("./line");
+
+var _index = _interopRequireDefault(require("./render/index"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -91,13 +91,10 @@ function initEvent() {
 
 function geneViewCode() {
   var val = this.els.codearea.value();
-  var html = (0, _render.renderHTML)(val);
+  var code = (0, _index["default"])(val, this.config.language);
 
-  _getView(this.el, 1).html(html);
+  _getView(this.el, 1).html(code); // _getView(this.el, 0).html(code);
 
-  var js = (0, _render.renderJS)(val);
-
-  _getView(this.el, 0).html(js);
 
   checkSizeAuto.call(this);
 

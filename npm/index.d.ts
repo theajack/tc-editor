@@ -1,7 +1,8 @@
 import {Ele, ToolStatic} from 'easy-dom-util';
 
-declare type buttonType = 'fontSizeUp' | 'fontSizeDown' | 'fullScreen' | 'fix' | 'changeTheme' | 'clearCode' | 'resetCode' | 'copy' | 'submit';
+declare type buttonType = 'fontSizeUp' | 'fontSizeDown' | 'fullScreen' | 'changeTheme' | 'clearCode' | 'resetCode' | 'copy' | 'submit';
 declare type themeType = 'normal' | 'dark';
+declare type langType = 'html' | 'js' | 'css';
 
 declare interface configStatic {
     el: Ele|string|HTMLElement;
@@ -16,8 +17,10 @@ declare interface configStatic {
     disabled?: boolean;
     fullScreen?: boolean;
     lineIndex?: boolean;
-    onload?: (this: Editor)=>{};
-    onsubmit?: (this: Editor, code: string)=>{};
+    language?: Array<langType>;
+    toast?(text: string): void;
+    onload?(this: Editor): void;
+    onsubmit?(this: Editor, code: string): void;
 }
 
 declare interface elsStatic {

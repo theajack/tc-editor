@@ -51,6 +51,16 @@ function createButton (name, btnInfo, editor) {
         .attr('title', btnInfo[0])
         .src(btnInfo[1])
         .click(function () {
-            editor[name]();
+            if (name === 'clearCode') {
+                if (window.confirm('是否确认清空代码(该操作不可撤销)？')) {
+                    editor[name]();
+                }
+            } else if (name === 'resetCode') {
+                if (window.confirm('是否确认重置代码(该操作不可撤销)？')) {
+                    editor[name]();
+                }
+            } else {
+                editor[name]();
+            }
         });
 }
