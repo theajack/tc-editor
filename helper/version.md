@@ -19,6 +19,9 @@
 1. 自定义toast 
 2. Editor的clearCode和resetCode中去除confirm
 
-## 1.0.3 (coding)
+## 1.0.3
+1. 修复在有缩进的行上按住ctrl+enter会换行的bug
+   
+## 1.0.4 (coding)
 1. 自定义按钮
 2. 自定义样式

@@ -78,7 +78,9 @@ function keyDown(e, tab) {
         this.selectionEnd = newEnd !== 'end' ? newEnd - affectedRows * b : this.value.length;
       }
     }
-  } else if (e.keyCode === 13 && e.shiftKey === false) {
+  } else if (e.keyCode === 13 && e.shiftKey === false && e.ctrlKey === false) {
+    console.log(11);
+
     var cursorPos = this.selectionStart,
         d = _findStartIndices(this),
         numStartIndices = d.length,

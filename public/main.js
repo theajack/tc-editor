@@ -1,5 +1,5 @@
-// import Editor from '../src';
-import Editor from '../npm';
+import Editor from '../src';
+// import Editor from '../npm';
 // import Editor from '../npm';
 // import $ from '../tnpm/repository';
 // import $ from '../src';
