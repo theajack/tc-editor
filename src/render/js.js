@@ -72,6 +72,8 @@ function renderColor (text) {
         ], // 有bug：需要不包含字符串本身
         ['(//.*(\n|$))|(\\/\\*(.|\n)*?\\*\\/)', 'cm'],
         ['\\/[a-zA-Z0-9' + sign.slice(1).join('') + ' ]+\\/[gi]?', 'reg'], // 正则
+        [signBegin + '[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]* ?\\(', 'f', new RegExp('[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]*', 'g')],
+        // ['\\.[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]* ?\\' + signEnd, 'a', new RegExp('[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]*', 'g')],
         grArr(keyword1, 'k1'),
         grArr(keyword1, 'k1'), // 重复是为了解决相邻同类元素 无法被匹配 比如 function function 只有第一个function被匹配，因为他们共享一个空格
         grArr(keyword2, 'k2'),
@@ -79,8 +81,8 @@ function renderColor (text) {
         grArr(keyword3, 'k3'),
         grArr(keyword3, 'k3'),
         [signBegin + '[0-9]+(\\.?[0-9]+)?' + signEnd, 'num', /[0-9]+(.?[0-9]+)?/g],
+        [signBegin + '[0-9]+(\\.?[0-9]+)?' + signEnd, 'num', /[0-9]+(.?[0-9]+)?/g],
         // [signBegin+'[0-9]+'+signEnd,'num',/[0-9]+/g],
-        [signBegin + '[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]* ?\\(', 'f', new RegExp('[a-zA-Z_\\$]+[a-zA-Z_\\$0-9]*', 'g')],
         ['[' + sign.join('') + ']', 'punc', new RegExp('[' + sign.join('') + ']', 'g')],
     ]);
     text = text.replace(/\&lt;/g, sp('<', 'punc')).replace(/\&gt;/g, sp('>', 'punc')).replace(/;/g, sp(';', 'punc')).replace(/&/g, sp('&', 'punc'));

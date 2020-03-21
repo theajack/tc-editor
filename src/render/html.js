@@ -8,7 +8,7 @@ export function renderHTML (val) {
     return html;
 }
 function _geneHtmlElement (html) {
-    return _geneCommon(html, /(&lt;)(.*?)(&gt;)/g, 'cd_tag', 'html');
+    return _geneCommon(html, /(&lt;)((.|\n)*?)(&gt;)/g, 'cd_tag', 'html');
 }
 function _geneHtmlContent (html) {
     return html.replace(/<\/cd_tag>(.|\n)*?<cd_tag>/g, function (str) {
@@ -33,7 +33,7 @@ function _geneCommon (html, reg, tag, type) {
         arr.forEach((a, i) => {
             if (type === 'html') {
                 a = _geneCommon(a, /(&lt;)|(&gt;)|(\/)/g, 'cd_attr_punc');
-                a = _geneCommon(a, /( )(\S*?)(=)/g, 'cd_attr', 'attr');
+                a = _geneCommon(a, /( |\n)(\S*?)(=)/g, 'cd_attr', 'attr');
             }
             if (type === 'attr') {
                 a = a.replace('=', '<cd_attr_equal>=</cd_attr_equal>');

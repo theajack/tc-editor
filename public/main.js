@@ -30,10 +30,18 @@ new Editor({
     theme: 'dark',
     buttons: false,
     code: `<!--script 标签引用-->
-<div id='editor'></div>
+<div 
+id='editor'>111</div>
 <script src="https://www.theajack.com/tc-editor/dist/tc-editor.latest.min.js"></script>
 <script>
+    export default {}
     new TCEditor({el: '#editor'});
+    1+1+1
+    a.alert=
+    (1,2,3,4,var,new,aa,'','','','')
+    this.$alert()
+    this.$message()
+
 </script>`,
     height: 'auto',
     width: '100%',

@@ -63,7 +63,6 @@ export default function keyDown (e, tab) {
             }
         }
     } else if (e.keyCode === 13 && e.shiftKey === false && e.ctrlKey === false) {
-        console.log(11);
         var cursorPos = this.selectionStart,
             d = _findStartIndices(this),
             numStartIndices = d.length,
