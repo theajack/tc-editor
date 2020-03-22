@@ -1,3 +1,7 @@
 .CodeMirror{
     width: 100%;
+    font-family: Consolas, 'Courier New', monospace;
+}
+.CodeMirror-code{
+    font-family: Consolas, 'Courier New', monospace;
 }

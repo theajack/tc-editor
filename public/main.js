@@ -32,7 +32,8 @@ import csslint from 'csslint';
 
 import 'codemirror/addon/fold/foldgutter.css';
 
-import 'codemirror/theme/monokai.css';
+// import 'codemirror/theme/monokai.css';
+import './codemirror.css';
 
 window.JSHINT = jshint.JSHINT;
 window.CSSLint = csslint.CSSLint;
@@ -41,9 +42,28 @@ window.CSSLint = csslint.CSSLint;
 window.CodeMirror = CodeMirror;
 let code = CodeMirror(document.getElementById('code'), {
     // value: '<script>\nfunction a(){\n\n}\n</script>',
-    value: 'function myScript(){return 100;}\nfunction a(){\n\n}',
-    mode: 'javascript',
-    theme: 'monokai',
+    value: /* html*/`
+<div attr="111">aaa</div>
+<!--111-->
+<script>
+    window.aa = {a:1}
+    if(a>10){
+
+    }
+    console.log({
+        a:1,
+    })
+    Object.keys();
+    function myScript(){return 100;}
+    function a(1){
+        /*aa11*/
+        // aa
+        'aaa'
+        /a\sa/i
+    }
+</script>`,
+    mode: 'htmlmixed',
+    theme: 'te-dark',
     // extraKeys: {'Tab': 'autocomplete'},
     lineNumbers: true,
     styleActiveLine: true,
@@ -66,7 +86,7 @@ let code = CodeMirror(document.getElementById('code'), {
     foldOptions: {
         widget: () => {
             let span = document.createElement('span');
-            span.innerText = '...';
+            span.innerText = '…';
             return span;
         },
     },
