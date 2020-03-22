@@ -26,6 +26,9 @@ module.exports = {
                     loader: path.resolve('./', 'helper/zipCssInJs.js')
                 }],
                 exclude: /node_modules/
+            }, {
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader'],
             }]
     }
 };
