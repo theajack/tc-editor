@@ -10,7 +10,7 @@ export default function initRenderStyle () {
     cd_attr_punc{color: rgb(128,0,0);}
     cd_html_c,cd_html_c cd_str{color: #2e2e2e;}
     
-    .j-c-dark .code_editor_view {color: rgb(103,205,254);}
+    .j-c-dark .code_editor_view {color: #9cdcfe;}
     .j-c-dark cd_tag,.j-c-dark cd_tag * {color: rgb(62,156,214)}
     .j-c-dark cd_str,.j-c-dark cd_str * {color: rgb(199,141,117)}
     .j-c-dark cd_attr{color: rgb(156, 220,254);}
