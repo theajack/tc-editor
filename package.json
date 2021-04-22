@@ -1,6 +1,6 @@
 {
   "name": "tc-editor",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple code editor js library 功能强大的轻量级代码编辑器",
   "main": "index.html",
   "author": "theajack <contact@theajack.com>",
@@ -11,8 +11,7 @@
     "代码编辑器"
   ],
   "scripts": {
-    "build": "webpack --config webpack-config/build.js && npm run build:npm",
-    "build:npm": "node ./helper/build-npm.js",
+    "build": "webpack --config webpack-config/build.js",
     "dev": "webpack-dev-server --open --config webpack-config/dev.js",
     "publish": "npm publish npm",
     "lint": "eslint src --ext js"
@@ -26,9 +25,10 @@
     "babel-loader": "^8.0.6",
     "chalk": "^3.0.0",
     "codemirror": "^5.52.2",
+    "copy-webpack-plugin": "^6.2.1",
     "css-loader": "^3.4.2",
     "csslint": "^1.0.5",
-    "easy-dom-util": "0.0.20",
+    "easy-dom-util": "0.0.27",
     "eslint": "^6.7.2",
     "eslint-loader": "^3.0.3",
     "gulp": "^4.0.2",
@@ -39,6 +39,7 @@
     "jshint": "^2.11.0",
     "monaco-editor": "^0.20.0",
     "recast": "^0.18.2",
+    "run-node-webpack-plugin": "^1.3.0",
     "style-loader": "^1.1.3",
     "vuepress": "^1.2.0",
     "webpack": "^4.39.1",

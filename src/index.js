@@ -1,5 +1,4 @@
 import $ from 'easy-dom-util';
-import './style';
 import {initEvent, geneViewCode, checkSizeAuto} from './event';
 import {initButtons} from './buttons';
 import {initSize} from './size';
@@ -7,6 +6,7 @@ import {initLine, setLineHeight} from './line';
 import {initActiveLine, setActiveLineHeight} from './activeLine';
 import {copy} from './util';
 import version from './version';
+import './index.css';
 // import render from './render/index';
 // document.getElementById('app').innerHTML = render(`<!DOCTYPE html>
 // <html lang="en">

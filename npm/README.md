@@ -1,12 +1,42 @@
 # [tc-editor](https://github.com/theajack/tc-editor)
 
-#### [theajack](https://github.com/theajack)
+
+<p>
+    <a href="https://www.github.com/theajack/tc-editor/stargazers" target="_black">
+        <img src="https://img.shields.io/github/stars/theajack/tc-editor?logo=github" alt="stars" />
+    </a>
+    <a href="https://www.github.com/theajack/tc-editor/network/members" target="_black">
+        <img src="https://img.shields.io/github/forks/theajack/tc-editor?logo=github" alt="forks" />
+    </a>
+    <a href="https://www.npmjs.com/package/tc-editor" target="_black">
+        <img src="https://img.shields.io/npm/v/tc-editor?logo=npm" alt="version" />
+    </a>
+    <a href="https://www.npmjs.com/package/tc-editor" target="_black">
+        <img src="https://img.shields.io/npm/dm/tc-editor?color=%23ffca28&logo=npm" alt="downloads" />
+    </a>
+    <a href="https://www.jsdelivr.com/package/npm/tc-editor" target="_black">
+        <img src="https://data.jsdelivr.com/v1/package/npm/tc-editor/badge" alt="jsdelivr" />
+    </a>
+    <a href="https://github.com/theajack/tc-editor/issues"><img src="https://img.shields.io/github/issues-closed/theajack/tc-editor.svg" alt="issue"></a>
+</p>
+<p>
+    <a href="https://github.com/theajack" target="_black">
+        <img src="https://img.shields.io/badge/Author-%20theajack%20-7289da.svg?&logo=github" alt="author" />
+    </a>
+    <a href="https://www.github.com/theajack/tc-editor/blob/master/LICENSE" target="_black">
+        <img src="https://img.shields.io/github/license/theajack/tc-editor?color=%232DCE89&logo=github" alt="license" />
+    </a>
+    <a href="https://cdn.jsdelivr.net/npm/tc-editor/tc-editor.min.js"><img src="https://img.shields.io/bundlephobia/minzip/tc-editor.svg" alt="Size"></a>
+    <a href="https://github.com/theajack/tc-editor/search?l=javascript"><img src="https://img.shields.io/github/languages/top/theajack/tc-editor.svg" alt="TopLang"></a>
+    <a href="https://www.github.com/theajack/tc-editor"><img src="https://img.shields.io/librariesio/dependent-repos/npm/tc-editor.svg" alt="Dependent"></a>
+    <a href="https://github.com/theajack/tc-editor/blob/master/test/test-report.txt"><img src="https://img.shields.io/badge/test-passed-44BB44" alt="test"></a>
+</p>
 
 ### 🚀 功能强大，体积小巧，简单易用的代码编辑器
 
 <!--<a href="#64-使用实例大全">快速上手</a>-->
 
-**[文档](https://www.theajack.com/tc-editor/) | [更新日志](https://github.com/theajack/tc-editor/blob/master/helper/version.md) | [应用:jui-code](https://www.theajack.com/jet/#/code) | [反馈](https://github.com/theajack/tc-editor/issues/new)**
+**[文档](https://theajack.gitee.io/tc-editor/) | [更新日志](https://github.com/theajack/tc-editor/blob/master/helper/version.md) | [应用:jui-code](https://theajack.gitee.io/jet/#/code) | [反馈](https://github.com/theajack/tc-editor/issues/new)**
 
 ---
 
@@ -41,11 +71,7 @@ new TCEditor({el: '#editor'});
 
 ```html
 <div id='editor'></div>
-<script src="https://www.theajack.com/tc-editor/dist/tc-editor.latest.min.js"></script>
-<!--
-或通过版本号引用
-<script src="https://www.theajack.com/tc-editor/dist/tc-editor.{version}.min.js"></script>
--->
+<script src="https://cdn.jsdelivr.net/npm/tc-editor/tc-editor.min.js"></script>
 <script>
     new TCEditor({el: '#editor'})
 </script>
@@ -139,4 +165,4 @@ TCEditor.create(config); // 等价于 new TCEditor(config)
 
 ### 3 应用例子
 
-[jui-code](https://www.theajack.com/jet/#/code)
+[jui-code](https://theajack.gitee.io/jet/#/code)

@@ -1,14 +1,15 @@
 {
     "name": "tc-editor",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "A simple code editor js library",
-    "main": "index.js",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
+    "main": "tc-editor.min.js",
+    "scripts": {},
+    "unpkg": "tc-editor.min.js",
+    "jsdelivr": "tc-editor.min.js",
+    "typings": "tc-editor.min.d.ts",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/theajack/easy-editor.git"
+        "url": "git+https://github.com/theajack/tc-editor.git"
     },
     "keywords": [
         "Editor",
@@ -16,12 +17,12 @@
         "editor"
     ],
     "dependencies": {
-        "easy-dom-util": "^0.0.20"
+        "easy-dom-util": "^0.0.27"
     },
     "author": "theajack",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/theajack/easy-editor/issues"
+        "url": "https://github.com/theajack/tc-editor/issues"
     },
-    "homepage": "https://github.com/theajack/easy-editor#readme"
+    "homepage": "https://github.com/theajack/tc-editor#readme"
 }
