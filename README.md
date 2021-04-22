@@ -1,6 +1,5 @@
 # [tc-editor](https://github.com/theajack/tc-editor)
 
-
 <p>
     <a href="https://www.github.com/theajack/tc-editor/stargazers" target="_black">
         <img src="https://img.shields.io/github/stars/theajack/tc-editor?logo=github" alt="stars" />
@@ -34,9 +33,7 @@
 
 ### 🚀 功能强大，体积小巧，简单易用的代码编辑器
 
-<!--<a href="#64-使用实例大全">快速上手</a>-->
-
-**[文档](https://theajack.gitee.io/tc-editor/) | [更新日志](https://github.com/theajack/tc-editor/blob/master/helper/version.md) | [应用:jui-code](https://theajack.gitee.io/jet/#/code) | [反馈](https://github.com/theajack/tc-editor/issues/new)**
+**[在线体验](https://theajack.gitee.io/jsbox?theme=dark&lang=html&lib=https://cdn.jsdelivr.net/npm/tc-editor/tc-editor.min.js&code=DwEwlgbgBGILwHICm4AuB7ATggfMA9OBDgFDADOAxpmAA6pTmaVwBEAFqqreQFz75KIAHYA6AFbkQSADaRMo4UlT5htALb5UlALQowGTFt37Do9WDGTWefFRr1SFanVSkoHqEoDuUACoAwgCiaFgAFADeJJ4xULK8UAgAxKZYCAA00bEe3rCo7LwIAIwADCUApAhZHgC+AJRkdi6OQA) | [文档](https://theajack.gitee.io/tc-editor/) | [更新日志](https://github.com/theajack/tc-editor/blob/master/helper/version.md) | [应用:jui-code](https://theajack.gitee.io/jet/#/code) | [反馈](https://github.com/theajack/tc-editor/issues/new)**
 
 ---
 
