@@ -1,3 +1,10 @@
+/*
+ * @Author: chenzhongsheng
+ * @Date: 2022-11-29 09:53:45
+ * @Description: Coding something
+ * @LastEditors: chenzhongsheng
+ * @LastEditTime: 2022-11-29 09:56:18
+ */
 // const MyPlugin = require('./plugin/plugin1')
 // const ErudaWebapckPlugin = require('eruda-webpack-plugin')
 const path = require('path');
